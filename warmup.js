@@ -176,7 +176,7 @@ function handleCommand(cli, data) {
         console.log(`MPD responded to ${cmd} in ${responseDelay} ms`);
 
         if (cmd.startsWith('playlist') && cmd != 'playlistinfo') { // playlistadd/move/delete/etc.
-            const listName = data.split(' ')[1];
+            const listName = data.split(' ').slice(1).join(' ');
             updatePlaylist(listName);
         }
     });
